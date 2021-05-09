@@ -1,0 +1,18 @@
+.Nominations {
+    width: 25%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 10px 5px;
+    padding: 10px 0 0 0;
+    color: var(--text-color);
+    background-color: var(--bg);
+    border-radius: 15px;
+    flex-wrap: wrap;
+}
+
+.Nominations h1 {
+    font-size: 1rem;
+    align-self: center;
+}

@@ -1,0 +1,16 @@
+.movie-panel {
+    width: 75%;
+    height: auto;
+    display: flex;
+    margin: 10px 0 0 0;
+    padding: 0;
+    color: var(--text-color);
+    flex-wrap: wrap;
+    border-radius: 15px;
+    background-color: var(--bg);
+}
+.movie-panel h1 {
+    width: 100%;
+    padding-left: 25px;
+    margin: 15px 0;
+}
