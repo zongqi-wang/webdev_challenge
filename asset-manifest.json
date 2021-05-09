@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/webdev_challenge/static/css/main.52d97621.chunk.css",
+    "main.js": "/webdev_challenge/static/js/main.f8b04843.chunk.js",
+    "main.js.map": "/webdev_challenge/static/js/main.f8b04843.chunk.js.map",
+    "runtime-main.js": "/webdev_challenge/static/js/runtime-main.b9df0a26.js",
+    "runtime-main.js.map": "/webdev_challenge/static/js/runtime-main.b9df0a26.js.map",
+    "static/js/2.8f020303.chunk.js": "/webdev_challenge/static/js/2.8f020303.chunk.js",
+    "static/js/2.8f020303.chunk.js.map": "/webdev_challenge/static/js/2.8f020303.chunk.js.map",
+    "static/js/3.2c5608d2.chunk.js": "/webdev_challenge/static/js/3.2c5608d2.chunk.js",
+    "static/js/3.2c5608d2.chunk.js.map": "/webdev_challenge/static/js/3.2c5608d2.chunk.js.map",
+    "index.html": "/webdev_challenge/index.html",
+    "static/css/main.52d97621.chunk.css.map": "/webdev_challenge/static/css/main.52d97621.chunk.css.map",
+    "static/js/2.8f020303.chunk.js.LICENSE.txt": "/webdev_challenge/static/js/2.8f020303.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b9df0a26.js",
+    "static/js/2.8f020303.chunk.js",
+    "static/css/main.52d97621.chunk.css",
+    "static/js/main.f8b04843.chunk.js"
+  ]
+}
