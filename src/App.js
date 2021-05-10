@@ -26,7 +26,7 @@ function App() {
     e.preventDefault();
     //use URL to get movies
     const title = query.searchQuery;
-    let url = `http://www.omdbapi.com/?s=${title}&type=movie&apikey=1d2f8dca`;
+    let url = `https://www.omdbapi.com/?s=${title}&type=movie&apikey=1d2f8dca`;
     const res = await fetch(url);
     const data = await res.json();
     //reset fields
