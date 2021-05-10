@@ -14,3 +14,63 @@
     padding-left: 25px;
     margin: 15px 0;
 }
+
+.movie-card {
+    width: 27.3%;
+    display: grid;
+    margin: 1%;
+    padding: 2%;
+    grid-template-rows: auto;
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas: 
+        "img img img"
+        "title title title"
+        "year year btn";
+    background-color: var(--accent-color-2);
+    border-radius: 10px;
+}
+
+.movie-card img{
+    margin: 0;
+    padding: 0;
+    grid-area: img;
+}
+
+.movie-info {
+    margin: 0;
+    padding: 0;
+}
+
+.title {
+    color: var(--text-color);  
+    grid-area: title;
+    padding: 0;
+    margin: 5px 0;
+}
+
+.year {
+    color: var(--text-color);
+    grid-area: year;
+    padding: 0;
+    margin: 5px 0 0 0;
+}
+
+/* .nominate-btn {
+    grid-area: btn;
+    height: 100%;
+    padding: 0 10px;
+    border-radius: 5px;
+    background-color: var(--accent-color-1); 
+    border: none;
+    color: var(--text-color);
+    text-align: center;
+    text-decoration: none;
+    font-size: 0.8rem;
+    transition-duration: 0.4s;
+}
+ 
+.nominate-btn:hover {
+    background-color: #4CAF50;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    color: white;
+  } */
