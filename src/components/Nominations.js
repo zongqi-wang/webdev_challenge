@@ -10,8 +10,8 @@ const Nominations = ({ nominations, onDel }) => {
       <h1>Your Nominations</h1>
       <ul>
         {noms.map((nomination) => (
-          <li className="nom">
-            <p key={nomination.Title}>{nomination.Title}</p>
+          <li className="nom" key={nomination.imdbID}>
+            <p>{nomination.Title}</p>
             <Button text="X" onClick={onDel} movie={nomination} />
           </li>
         ))}

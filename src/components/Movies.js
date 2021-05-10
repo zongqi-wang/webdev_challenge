@@ -3,10 +3,6 @@ import "./Movies.css";
 import Button from "./Button.js";
 
 const Movies = ({ movies, onAdd }) => {
-  const onClick = () => {
-    console.log("clicked");
-  };
-
   return (
     <div className="movie-panel">
       <h1>Search Results</h1>

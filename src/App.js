@@ -2,25 +2,24 @@ import "./App.css";
 import Movies from "./components/Movies";
 import Navbar from "./components/Navbar";
 import Nominations from "./components/Nominations";
-import { useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 
 function App() {
-
   useEffect(() => {
     document.title = "The Shoppies";
-  }, [])
+  }, []);
 
   //state for movie query
-  const [query, updateQuery] = useState({searchQuery: ""});
+  const [query, updateQuery] = useState({ searchQuery: "" });
 
   //state for movies on display
   const [movies, setMovies] = useState([]);
   //update state from search bar
-  const handleQuery = (e) =>{
+  const handleQuery = (e) => {
     updateQuery({
-      searchQuery: e.target.value
+      searchQuery: e.target.value,
     });
-  }
+  };
 
   //get movies from search fields using API
   async function getMoveis(e) {
@@ -32,83 +31,79 @@ function App() {
     const data = await res.json();
     //reset fields
     e.target.reset();
-    updateQuery({searchQuery: ""})
+    updateQuery({ searchQuery: "" });
 
     //getting correct data
-    if(data.Response === "True"){
+    if (data.Response === "True") {
       const results = data.Search;
 
-      //look for unique items for corner case such as 
+      //look for unique items for corner case such as
       //searching 'hello' produces duplicates
       const ids = new Set();
-      for(var i=0; i<results.length; i++) {
-        if(!ids.has(results[i]['imdbID'])){
-          ids.add(results[i]['imdbID']);
-        }else{
+      for (var i = 0; i < results.length; i++) {
+        if (!ids.has(results[i]["imdbID"])) {
+          ids.add(results[i]["imdbID"]);
+        } else {
           results.splice(i, 1);
         }
       }
       setMovies(results);
-    }
-    else{
+    } else {
       alert("Too many results. Please enter a longer input.");
     }
-    
-    
   }
 
-
-
-
-  //handle button click
+  // Nominations
+  const [nominations, setNom] = useState([]);
+  // nominating movies
   const addNom = (movie) => {
-    console.log("nominated")
-    console.log(movie);
+    let exist = false;
+    for (let i = 0; i < nominations.length; i++) {
+      if (nominations[i]["imdbID"] === movie["imdbID"]) {
+        exist = true;
+        break;
+      }
+    }
+    if (!exist) setNom([...nominations, movie]);
   };
 
   const delNom = (movie) => {
-    console.log("deleted")
-    console.log(movie)
+    setNom(nominations.filter((nom) => nom["imdbID"] !== movie["imdbID"]));
   };
 
-  
-
-  const [nominations, setNom] = useState([
-    {
-      Title: "The Avengers",
-      Year: "2012",
-      imdbID: "tt0848228",
-      Type: "movie",
-      Poster:
-        "https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg",
-    },
-    {
-      Title: "Avengers: Infinity War",
-      Year: "2018",
-      imdbID: "tt4154756",
-      Type: "movie",
-      Poster:
-        "https://m.media-amazon.com/images/M/MV5BMjMxNjY2MDU1OV5BMl5BanBnXkFtZTgwNzY1MTUwNTM@._V1_SX300.jpg",
+  //nomination banner
+  useEffect(() => {
+    const banner = document.getElementById("banner");
+    if (nominations.length >= 5) {
+      banner.classList.remove("hidden");
+    } else {
+      banner.classList.add("hidden");
     }
-  ]);
+  }, [nominations]);
 
   return (
     <div className="wrapper">
-      <Navbar searchSubmit = {getMoveis} handleQuery = {handleQuery} />
-      <div className = "banner" className = "hidden">
-        <p>You have added 5 nominations!</p>
+      <Navbar searchSubmit={getMoveis} handleQuery={handleQuery} />
+      <div id="banner" className="hidden">
+        <p>You have added {nominations.length} nominations!</p>
       </div>
       <main>
         <div className="container">
-          <Movies movies={movies} onAdd = {addNom} />
+          <Movies movies={movies} onAdd={addNom} />
           <Nominations nominations={nominations} onDel={delNom} />
         </div>
       </main>
       <footer>
         <ul>
-          <li><a href="https://github.com/zongqi-wang/webdev_challenge/">Check out the code</a> </li>
+          <li>
+            <a href="https://github.com/zongqi-wang/webdev_challenge/">
+              Check out the code
+            </a>{" "}
+          </li>
           <li>|</li>
-          <li><a href="https://wangzongqi.com">My Website</a> </li>
+          <li>
+            <a href="https://wangzongqi.com">My Website</a>{" "}
+          </li>
           <li>|</li>
           <li>&#169; Zongqi Wang 2021</li>
         </ul>
